@@ -1,0 +1,60 @@
+<div class="error-message-container">
+    <i class="fas fa-times-circle mr-2"></i>
+    <span>{{errorMessage}}</span>
+</div>
+
+<div class="w-75 m-auto py-5">
+
+    <h3 class="my-3">Login Form </h3>
+
+    <form [formGroup]="loginForm" (ngSubmit)='submitLoginForm(loginForm)'>
+
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input [class.is-valid]="loginForm.get('email')?.status=='VALID'" formControlName='email' class="form-control" type="email" id="email">
+
+            <div *ngIf='loginForm.get("email")?.errors != null && loginForm.get("email")?.touched' class="error my-2">
+                <p *ngIf="loginForm.get('email')?.errors?.required != null">Email
+                    Address is required</p>
+                <p *ngIf="loginForm.get('email')?.errors?.email != null">Email
+                    Address is invalid</p>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input [class.is-valid]="loginForm.get('password')?.status=='VALID'" formControlName='password' class="form-control" type="password" id="password">
+
+            <div *ngIf='loginForm.get("password" )?.errors != null &&
+            loginForm.get("password" )?.touched' class="error my-2">
+                <p *ngIf="loginForm.get('password')?.errors?.required != null">Password
+                    is required</p>
+                <p *ngIf="loginForm.get('password')?.errors?.pattern != null">Password
+                    minmimum length is 8</p>
+                <p *ngIf="loginForm.get('password')?.errors?.pattern != null">Password
+                    must begin with upper case letter and contain lower
+                    case or upper case letters
+                    and contain one
+                    special character '@ , $ , % , # , &'
+                </p>
+            </div>
+        </div>
+
+
+
+        <button [disabled]='loginForm.invalid' class="btn btn-info" type="submit">
+            <span *ngIf="!isLoading">Login</span>
+            <div *ngIf="isLoading" class="spinner-border">
+            </div>
+
+
+        </button>
+
+    </form>
+
+
+</div>

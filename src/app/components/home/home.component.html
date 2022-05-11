@@ -1,0 +1,58 @@
+<app-loadingspinner [showSpinner]="isLoading"></app-loadingspinner>
+
+<app-homeheader></app-homeheader>
+
+
+<div class="container-fluid my-3">
+
+    <div class="row">
+        <div class="col-md-4">
+
+            <div class="brdr w-25 my-3"></div>
+
+            <div class="caption">
+                <h3>Trending <br> movies <br> To watch now </h3>
+                <p>most watched movies shows by days</p>
+
+            </div>
+
+
+            <div class="brdr w-100 my-3"></div>
+
+
+        </div>
+
+
+        <div *ngFor="let movie of trendingMoviesList ; let i = index" class="col-md-2 my-2">
+            <div *ngIf="i < 10" class="movie-item">
+                <a class="movie-container text-decoration-none" [routerLink]='["/mediaDetails", "movie" ,movie.id]'>
+                    <div class="movie-image">
+                        <img class="w-100" [src]="imgPrefix+movie.image" alt="">
+
+                        <span class="vote lightBgColor">{{movie.vote}}</span>
+
+                        <div class="movie-overlay">
+                            <button class="btn btn-info">See more</button>
+                        </div>
+                    </div>
+
+
+                    <h3 class="movie-title">{{movie.title}}</h3>
+
+                </a>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+</div>
+
+
+

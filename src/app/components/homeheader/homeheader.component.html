@@ -1,0 +1,21 @@
+<section class="d-flex align-items-center">
+
+  <div class="overlay-bg"></div>
+
+  <div class="container">
+    <h1>OUR LATEST MOVIES</h1>
+
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let movie of trendingMovies">
+        <ng-template carouselSlide [id]="movie.id">
+          <a class="movie-container text-decoration-none" [routerLink]='["/mediaDetails", "movie" ,movie.id]'>
+            <img [src]="imgPrefix+movie.image" alt="">
+          </a>
+        </ng-template>
+      </ng-container>
+
+    </owl-carousel-o>
+
+
+  </div>
+</section>

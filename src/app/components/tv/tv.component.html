@@ -1,0 +1,27 @@
+<app-loadingspinner [showSpinner]="isLoading"></app-loadingspinner>
+
+
+<div class="container my-5">
+    <div class="row" id="page-content">
+        <div *ngFor="let tv of tvShowsList" class="col-md-3 my-2">
+            <div class="media-item">
+
+                <a class="media-container text-decoration-none" [routerLink]='["/mediaDetails", "tv" ,tv.id]'>
+                    <div class="media-image">
+                        <img class="w-100 rounded" [src]="imgPrefix+tv.image" alt="">
+
+                        <span class="vote lightBgColor">{{tv.vote}}</span>
+
+                        <div class="media-overlay">
+                            <button class="btn btn-info">See more</button>
+                        </div>
+                    </div>
+
+
+                    <h3 class="media-title">{{tv.title}}</h3>
+
+                </a>
+
+            </div>
+        </div>
+    </div>

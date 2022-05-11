@@ -1,0 +1,74 @@
+$logoColor: #fff;
+$bgColor: #252c41;
+$lightBgColor: #24baef;
+
+.navbar-brand {
+    color: $logoColor;
+}
+
+.nav-link{
+    font-size: 16px;
+}
+
+.nav-rest-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+
+.auth-links {
+    display: flex;
+    list-style: none;
+    margin-bottom: 0 !important;
+}
+
+.social-media a{
+    font-size: 16px;
+}
+
+.social-media a:hover{
+    color: $lightBgColor;
+}
+
+@media screen and (min-width: 992px) and (max-width: 1100px) {
+    .social-media {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .navbar{
+        padding: 0.5rem 1rem;
+    }
+    #navbarSupportedContent ul li {
+        background-color: $bgColor;
+        margin: 10px 0;
+        border-radius: 5px;
+        padding-left: 10px;
+        transition: 0s;
+    }
+
+    .nav-rest-container {
+        flex-flow: wrap column;
+        align-items: flex-start;
+        margin: 10px 0;
+        padding: 10px 0;
+        border-radius: 5px;
+        background-color: $bgColor;
+    }
+
+    .nav-rest-container form input {
+        width: 50vw;
+        margin: 10px 0 10px 8px;
+    }
+
+    .social-media {
+        padding: 5px;
+    }
+
+    .auth-links a {
+        padding-left: 5px;
+        text-align: start;
+    }
+}

@@ -1,0 +1,38 @@
+<app-loadingspinner [showSpinner]="isLoading"></app-loadingspinner>
+
+
+<div class="container my-4">
+
+    <div class="row" *ngIf="mediaType=='movie'">
+        <div class="col-md-5">
+            <img class="w-100 rounded" [src]="imgPrefix+movieDetails.image" alt="">
+        </div>
+
+        <div class="col-md-7">
+            <div class="movie-data mx-2 my-3">
+                <h2 class="font-weight-bold">{{movieDetails.title}}</h2>
+
+                <div class="movie-genres d-flex flex-wrap">
+                    <div *ngFor="let genre of mediaGenres" class="genre bg-info p-2 my-2">
+                        {{genre.name}}
+                    </div>
+                </div>
+
+                <p class="my-4">Vote: <span class="mx-2">{{movieDetails.vote}} <i class="fas fa-star text-info"></i></span></p>
+
+
+                <p class="my-4">Release date: {{movieDetails.release_date}}</p>
+
+                <span class="font-weight-bolder">Overview</span>
+
+                <p class="my-3 w-75 light-color">{{movieDetails.overview}}</p>
+
+                <button class="btn btn-success">Book Now</button>
+
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
